@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Analizador de Red
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-row>
+
+    <ion-item>
+      <ion-label floating>Dirección IP</ion-label>
+      <ion-input type="text" [(ngModel)]="direccion"></ion-input>
+    </ion-item>
+    <div col-12 text-center>
+      <small>Ejemplo: 192.168.1.1/24</small>
+    </div>
+  </ion-row>
+  <div col-12 text-center>
+    <button ion-button color="dark" (click)="analizar()">Analizar</button>
+  </div>
+  <div col-12 *ngIf="mostrarResultados">
+    <h5 text-center style="border-style: none none solid none;">Resultados</h5>
+    <table style="width:100%">
+      <tr>
+        <th col-6 text-right>IP Red</th>
+        <td col-6>{{IPNet}}</td>
+      </tr>
+      <tr>
+        <th col-6 text-right>Máscara</th>
+        <td col-6>{{Mask}}</td>
+      </tr>
+      <tr>
+        <th col-6 text-right>Primera IP</th>
+        <td col-6>{{FirstIP}}</td>
+      </tr>
+      <tr>
+        <th col-6 text-right>Última IP</th>
+        <td col-6>{{LastIP}}</td>
+      </tr>
+      <tr>
+        <th col-6 text-right>IP Broadcast</th>
+        <td col-6>{{IPBroadcast}}</td>
+      </tr>
+      <tr>
+        <th col-6 text-right>Total de Hosts</th>
+        <td col-6>{{Hosts}}</td>
+      </tr>
+    </table>
+  </div>
+</ion-content>
